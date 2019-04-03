@@ -22,3 +22,5 @@ Route::get('/about', 'StaticPagesController@about')->name('about');
 //这两种写法都可以
 //Route::get('/signup', 'UsersController@create')->name('signup');
 Route::get('signup', 'UsersController@create')->name('signup');
+
+Route::resource('users', 'UsersController');
