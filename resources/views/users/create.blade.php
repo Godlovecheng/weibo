@@ -30,8 +30,9 @@
                         <input type="password" name="password_confirmation" class="form-control" value="{{ old('password_confirmation') }}">
                     </div>
 
-                    <button type="button" class="btn btn-primary">注册</button>
-                    {{--<input type="button" class="btn btn-primary" value="注册">--}}
+                    {{ csrf_field() }}
+                    <button type="submit" class="btn btn-primary">注册</button>
+                    {{--<input type="submit" class="btn btn-primary" value="注册">--}}
                 </form>
             </div>
         </div>
