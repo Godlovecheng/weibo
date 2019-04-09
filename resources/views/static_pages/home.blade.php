@@ -8,7 +8,7 @@
 {{--</body>--}}
 {{--</html>--}}
 
-@extends('layouts.default')
+@extends('layouts/default')
 
 @section('title', 'Weibo App')
 

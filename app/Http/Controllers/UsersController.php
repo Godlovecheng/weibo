@@ -9,7 +9,7 @@ class UsersController extends Controller
 {
     public function create()
     {
-        return view('users.create');
+        return view('users/create');
     }
 
     public function show(User $user)
@@ -30,6 +30,7 @@ class UsersController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
         ]);
+
         session()->flash('success', '欢迎，您将在这里开启一段新的旅程～');
         return redirect()->route('users.show', [$user->id]);
     }
