@@ -7,6 +7,13 @@ use Auth;
 
 class SessionsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('guest', [
+           'only' => ['create']
+        ]);
+    }
+
     public function create()
     {
         return view('sessions/create');
@@ -22,7 +29,9 @@ class SessionsController extends Controller
         if (Auth::attempt($credentials, $request->has('remember'))) {
             //echo '验证成功！';
             session()->flash('success', '欢迎回来！');
+            //$fallback = route('users.show', Auth::user());
             return redirect()->route('users.show', [Auth::user()]);
+            //return redirect()->intended($fallback);
         } else {
             //echo 'email或密码错误！';
             session()->flash('danger', '您的邮箱和密码不匹配！');
