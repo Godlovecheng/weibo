@@ -54,4 +54,11 @@ class User extends Authenticatable
         $hash = md5(strtolower(trim($this->attributes['email'])));
         return "http://gravatar.com/avatar/$hash?s=$size";
     }
+
+    //指明一个用户拥有多条微博
+    //由于一个用户拥有多条微博，因此在用户模型中我们使用了微博动态的复数形式 statuses 来作为定义的函数名
+    public function statuses()
+    {
+        return $this->hasMany(Status::class);
+    }
 }
